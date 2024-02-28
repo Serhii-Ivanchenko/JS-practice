@@ -888,6 +888,35 @@
 //   return mergedArray;
 // };
 
+// Варіанти від Дмитра:
+
+// function foo(array1, array2) {
+//     const res = [...array1];
+
+//     array2.forEach(item => {
+//         if(!res.some(el => el.id === item.id)) {
+//             res.push(item)
+//         }
+//     })
+//     return res;
+// }
+
+// function foo(array1, array2) {
+//     const res = [...array1];
+//     array2.forEach(item => {
+//         const index = res.findIndex(el => el.id === item.id);
+//         if(index === -1) {
+//             res.push(item)
+//         } else {
+//             // res.splice(index, 1, item)
+//             res.splice(index, 1, {...res[index], ...item})
+//         }
+//     })
+//     return res;
+// }
+
+// console.log(foo(arr1, arr2));
+
 // console.log(uniq(arr1, arr2));
 
 
