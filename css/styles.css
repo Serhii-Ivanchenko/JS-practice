@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    margin: 50px auto;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    width: 156px;
+    height: 156px;
+    margin: 0 auto;
+
+    background-color: lightcyan;
+    border: 1px solid black;
+}
+
+.item {
+    display: inline-block;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 50px;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+    transition: background 100ms ease-in-out;
+}
+
+.item:hover {
+    background-color: lightgray;
+}
