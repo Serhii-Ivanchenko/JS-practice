@@ -1,6 +1,20 @@
+body {
+    font-family: "Bowlby One SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.game-title {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(216, 29, 29);
+    text-shadow: 2px 5px rgba(0, 0, 0, 0.56);
+    margin: 20px 0;
+}
+
 .container {
     display: flex;
-    margin: 50px auto;
+    margin: 0 auto;
 }
 
 .content {
@@ -10,6 +24,8 @@
     width: 456px;
     height: 456px;
     margin: 0 auto;
+
+    user-select: none;
 
     background-color: lightcyan;
     border: 1px solid black;
@@ -23,7 +39,7 @@
     width: 150px;
     height: 150px;
     border: 1px solid black;
-    font-size: 25px;
+    font-size: 75px;
     font-weight: 500;
     line-height: 150px;
     cursor: pointer;
@@ -34,4 +50,26 @@
 
 .item:hover {
     background-color: lightgray;
+}
+
+.gamewinner-text,
+.draw-text {
+    font-size: 75px;
+    font-weight: 500;
+    color: rgba(216, 29, 29, 0.918);
+    text-shadow: 2px 5px rgba(0, 0, 0, 0.56);
+    text-align: center;
+    user-select: none;
+}
+
+.basicLightbox__placeholder {
+    width: 700px;
+    background-image: radial-gradient(circle, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-position: center;
+    background-size: cover;
+}
+
+.accent {
+    font-size: 90px;
+    font-weight: 700;
 }

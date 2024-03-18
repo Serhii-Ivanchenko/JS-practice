@@ -20,21 +20,91 @@ const combinations = [
 ];
 
 const contentContainer = document.querySelector('.content');
-
 let element = '';
+let player = 'X';
+let playerX = [];
+let playerO = [];
+let instance;
+
+contentContainer.addEventListener('click', onClick);
 
 function createMarkup() {
   for (let i = 1; i <= 9; i += 1) {
-    element += `<div class="item" id=${i}></div>`;
+    element += `<div class="item" data-id=${i}></div>`;
   }
   contentContainer.insertAdjacentHTML('beforeend', element);
 }
 createMarkup();
-const cellEl = document.querySelectorAll('.item');
-cellEl.forEach(cellEl => {
-  cellEl.addEventListener('click', onClick);
-});
 
 function onClick(event) {
-  console.log('click on the cell');
+  if (!event.target.classList.contains('item') || event.target.textContent) {
+    return;
+  }
+  event.target.textContent = player;
+
+  resultCheck();
+
+  player === 'X' ? (player = 'O') : (player = 'X');
+}
+
+function resultCheck() {
+  let gameWinner = false;
+  if (player === 'X') {
+    playerX.push(Number(event.target.dataset.id));
+    gameWinner = playerX.length >= 3 && winningCombinationSelect(playerX);
+  } else {
+    playerO.push(Number(event.target.dataset.id));
+    gameWinner = playerO.length >= 3 && winningCombinationSelect(playerO);
+  }
+
+  if (gameWinner) {
+    instance = basicLightbox.create(
+      `<p class="gamewinner-text">Winner<br><span class="accent">Player ${player}</span></p>`,
+      {
+        onShow: instance => {
+          window.addEventListener('keydown', onEscPress);
+        },
+        onClose: instance => {
+          window.removeEventListener('keydown', onEscPress);
+          resetGame();
+        },
+      }
+    );
+    instance.show();
+  }
+  // draw
+  if (playerX.length + playerO.length === 9 && !gameWinner) {
+    instance = basicLightbox.create(
+      `<p class="draw-text">DRAW<br><span class="accent">LOOSERS</span><br>😂</p>`,
+      {
+        onShow: instance => {
+          window.addEventListener('keydown', onEscPress);
+        },
+        onClose: instance => {
+          window.removeEventListener('keydown', onEscPress);
+          resetGame();
+        },
+      }
+    );
+    instance.show();
+  }
+}
+
+function winningCombinationSelect(arr) {
+  return combinations.some(element => element.every(id => arr.includes(id)));
+}
+
+function onEscPress(event) {
+  if (event.code === 'Escape') {
+    console.log(event);
+    instance.close();
+  }
+}
+
+function resetGame() {
+  const cellEl = document.querySelectorAll('div.item');
+  cellEl.forEach(element => (element.textContent = ''));
+  playerX = [];
+  playerO = [];
+  player = 'X';
 }
