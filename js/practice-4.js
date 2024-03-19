@@ -64,7 +64,7 @@
 ** 1 - При події `input`, якщо користувач ввів в поле більше 6 символів то додати клас `success`. Якщо ж символів менше аніж 6, то клас `error`
 */
 
-const input = document.querySelector('.input');
+// const input = document.querySelector('.input');
 
 // Input event
 // input.addEventListener('input', event => {
