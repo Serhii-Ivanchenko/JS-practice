@@ -1,0 +1,15 @@
+.calendar {
+    display: flex;
+    gap: 40px;
+    margin: 40px;
+}
+
+.date-style span {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.digital-clock {
+    margin: 40px;
+
+}

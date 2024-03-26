@@ -1184,7 +1184,6 @@
 
 // user.getInfo.call(obj);
 
-
 //TODO:=========task-05=================
 //  Викличте функцію showFullName у контексті об'єкта user
 
@@ -1248,3 +1247,4 @@
 
 // console.log(`Order for table ${order.tableNumber} - Total: $${total}`);
 // console.log(`Is paid: ${order.isPaid}`);
+
