@@ -1,0 +1,60 @@
+.search-form {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.label {
+    
+}
+
+.search-input {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group {}
+
+.days-select {}
+
+.search-button {}
+
+.weather-cards {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    gap: 30px;
+    padding: 0;
+
+
+}
+
+.weather-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - (2 * 30px) / 3);
+    background-color: lightblue;
+    border-radius: 8px;
+
+
+}
+
+.weather-icon {}
+
+.date {}
+
+.weather-text {}
+
+.temp {}

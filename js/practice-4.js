@@ -121,7 +121,6 @@
 //   event.target.nextElementSibling.classList.toggle('active');
 // }
 
-
 // const form = document.querySelector('.feedback-form');
 // const textarea = form.elements.message;
 // const localStorageKey = 'goit-example-message';
@@ -138,3 +137,20 @@
 //   localStorage.removeItem(localStorageKey);
 //   form.reset();
 // });
+const options = {
+  method: 'GET',
+};
+fetch('https://rickandmortyapi.com/api/character', options)
+  .then(response => {
+    console.log(response);
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
