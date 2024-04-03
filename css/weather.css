@@ -12,29 +12,65 @@
 
 }
 
-.label {
-    
-}
+.label {}
 
 .search-input {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
+    padding: 6px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    transition: border 300ms ease-in-out;
+}
+
+.search-input:hover,
+.search-input:focus {
+    border: 2px solid black;
 }
 
 .input-group {}
 
-.days-select {}
+.days-select {
+    display: block;
+    margin: 5px auto;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid black;
+}
 
-.search-button {}
+.days-select:hover,
+.days-select:focus {
+    border: 2px solid black;
+}
+
+.search-button {
+    margin-bottom: 20px;
+    width: 120px;
+    height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    background-color: #4e75ff;
+    transition: background-color 300ms ease-in-out;
+}
+
+.search-button:hover {
+    background-color: #191970;
+}
 
 .weather-cards {
     display: flex;
+    justify-content: center;
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
     gap: 30px;
-    padding: 0;
+    padding: 0 20px;
 
 
 }
@@ -44,11 +80,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: calc(100% - (2 * 30px) / 3);
+    width: 300px;
     background-color: lightblue;
     border-radius: 8px;
-
-
 }
 
 .weather-icon {}
