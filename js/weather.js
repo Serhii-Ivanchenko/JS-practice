@@ -13,7 +13,11 @@ function handleSearch(event) {
   serviceWeather(city.value, days.value)
     .then(
       data =>
-        (elements.list.innerHTML = createMarkup(data.forecast.forecastday))
+        (elements.list.innerHTML = createMarkup(
+          data.forecast.forecastday,
+          city.value
+        ))
+      // console.log(data.location.name)
     )
     .catch(error => console.log(error))
     .finally(() => event.target.reset());
@@ -39,7 +43,7 @@ function serviceWeather(city, days) {
   });
 }
 
-function createMarkup(arr) {
+function createMarkup(arr, city) {
   return arr
     .map(
       ({
@@ -49,6 +53,7 @@ function createMarkup(arr) {
           condition: { icon, text },
         },
       }) => `<li class="weather-card">
+             <h2 class="city">${city}</h2>
             <img class="weather-icon" src="${icon}" alt="${text}">
             <h2 class="date">${date}</h2>
             <h3 class="weather-text">${text}</h3>

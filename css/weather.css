@@ -72,7 +72,6 @@
     gap: 30px;
     padding: 0 20px;
 
-
 }
 
 .weather-card {
@@ -80,6 +79,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     width: 300px;
     background-color: lightblue;
     border-radius: 8px;
@@ -87,8 +87,7 @@
 
 .weather-icon {}
 
-.date {}
-
-.weather-text {}
-
+.city,
+.date,
+.weather-text,
 .temp {}
