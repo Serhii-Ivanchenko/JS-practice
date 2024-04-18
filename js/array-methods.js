@@ -577,17 +577,15 @@
 //     })
 // }
 
-// console.log(productsInCategory(products, 'Аксессуары'));
-
+// console.log(productsInCategory(products, 'Электроника'));
 
 // !
-// Теперь давай рассмотрим реальный пример использования метода some в веб-разработке. Представь, ты разрабатываешь интернет-магазин, и у тебя на сайте есть список товаров, каждый из которых имеет свойства, такие как name, price и inStock (наличие на складе).
+// Теперь давай рассмотрим реальный пример использования метода some в веб-разработке.
+// Представь, ты разрабатываешь интернет - магазин, и у тебя на сайте есть список товаров, каждый из которых имеет свойства, такие как name, price и inStock(наличие на складе).
 // Пример сценария:
 
 // Тебе нужно быстро проверить, есть ли в наличии товары определённой категории, чтобы, например, отобразить пользователю сообщение с предложением ознакомиться с этими товарами или обновить статус на странице категории.
 // Структура данных товаров:
-
-// javascript
 
 // const products = [
 //   { name: "Ноутбук", category: "Электроника", inStock: true },
@@ -600,24 +598,44 @@
 
 // Проверить, есть ли в наличии хотя бы один товар из категории "Электроника".
 
+// function checkProduct(arr, category) {
+//     return arr.some((item)=> item.category === category && item.inStock)
+// };
+// console.log(checkProduct(products, 'Электроника'));
+
 // !
 // Давай разберем задачку, которая сочетает в себе использование методов filter, find и map. Это будет отличный способ попрактиковаться в применении этих методов вместе.
 
 // Задача: У тебя есть данные о книгах в библиотеке и запросы на книги от читателей. Нужно написать функцию, которая для каждого запроса найдет все книги по заданному жанру, затем выберет из них книгу с наивысшим рейтингом и вернет информацию о названии этой книги и имени читателя, который запросил жанр.
 // Данные:
 
-// javascript
-
 // const books = [
-//   { title: "Книга 1", genre: "фантастика", rating: 4.5 },
-//   { title: "Книга 2", genre: "фэнтези", rating: 4.7 },
-//   { title: "Книга 3", genre: "фантастика", rating: 4.8 },
-//   { title: "Книга 4", genre: "классика", rating: 4.1 },
-//   { title: "Книга 5", genre: "фэнтези", rating: 4.9 }
+//   { title: 'Книга 1', genre: 'фантастика', rating: 4.5 },
+//   { title: 'Книга 2', genre: 'фэнтези', rating: 4.7 },
+//   { title: 'Книга 3', genre: 'фантастика', rating: 4.8 },
+//   { title: 'Книга 4', genre: 'классика', rating: 4.1 },
+//   { title: 'Книга 5', genre: 'фэнтези', rating: 4.9 },
 // ];
 
 // const requests = [
-//   { readerName: "Алексей", genre: "фантастика" },
-//   { readerName: "Мария", genre: "фэнтези" },
-//   { readerName: "Иван", genre: "классика" }
+//   { readerName: 'Алексей', genre: 'фантастика' },
+//   { readerName: 'Мария', genre: 'фэнтези' },
+//   { readerName: 'Иван', genre: 'классика' },
 // ];
+
+// function bookFinder(books, genre) {
+//   const booksByGenreInDescendingOrder = books
+//     .filter(book => book.genre === genre)
+//     .toSorted((a, b) => b.rating - a.rating);
+//   const topRatedBook = booksByGenreInDescendingOrder[0];
+//   return topRatedBook;
+// }
+
+// function requestsHandle(books, requests) {
+//   for (const request of requests) {
+//     const topBook = bookFinder(books, request.genre);
+//     return `${topBook.title}, ${request.readerName}`;
+//   }
+// }
+
+// console.log(requestsHandle(books, requests));
