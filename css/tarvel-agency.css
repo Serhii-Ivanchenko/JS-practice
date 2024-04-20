@@ -1,0 +1,17 @@
+.js-search-form {
+    margin: 10px;
+}
+
+.js-form-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.js-add-btn {
+    margin: 10px;
+}
+
+.js-list {}
