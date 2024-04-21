@@ -19,10 +19,18 @@ async function onSubmit(event) {
   const countries = formData
     .getAll('country')
     .map(item => item.trim())
-    .filter(item => item !== '');
-  const capitals = await serviceCountry(countries);
-  const weather = await serviceWeather(capitals);
-  console.log(weather);
+    .filter(item => item !== '')
+    .filter((item, index, arr) => arr.indexOf(item) === index);
+  try {
+    const capitals = await serviceCountry(countries);
+    const weather = await serviceWeather(capitals);
+
+    list.innerHTML = createMarkup(weather);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    container.innerHTML = '<input type="text" name="country" />';
+  }
 }
 
 async function serviceCountry(countries) {
@@ -42,7 +50,7 @@ async function serviceCountry(countries) {
 }
 
 async function serviceWeather(capitals) {
-  const BASE_URL = 'http://api.weatherapi.com/v1/';
+  const BASE_URL = 'https://api.weatherapi.com/v1/';
   const END_POINT = 'current.json';
   const API_KEY = '37aae5bd885543b9a42120737242004';
 
@@ -78,4 +86,20 @@ async function serviceWeather(capitals) {
         return { text, icon, temp_c, name, country };
       }
     );
+}
+
+function createMarkup(arr) {
+  return arr
+    .map(
+      ({ text, icon, temp_c, name, country }) =>
+        `<li class="weather-card">
+        <h2 class="country">${country}</h2>
+        <h2 class="city">${name}</h2>
+        <img class="weather-icon" src="${icon}" alt="${text}">
+        <p class="temp">${temp_c}°C</p>
+        <p class="weather-text">${text}</p>
+        </div>
+      </li>`
+    )
+    .join('');
 }

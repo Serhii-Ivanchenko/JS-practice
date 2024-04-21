@@ -111,32 +111,32 @@
  * розкритий текст приховується.Нажимаючи на інші елементи меню, попередньо відкриті елементи не закриваються.
  */
 
-// const listEl = document.querySelector('.js-accordion-list');
-// listEl.addEventListener('click', onClick);
+const listEl = document.querySelector('.js-accordion-list');
+listEl.addEventListener('click', onClick);
 
-// function onClick(event) {
-//   if (event.target === event.currentTarget) {
-//     return;
-//   }
-//   event.target.nextElementSibling.classList.toggle('active');
-// }
+function onClick(event) {
+  if (event.target === event.currentTarget) {
+    return;
+  }
+  event.target.nextElementSibling.classList.toggle('active');
+}
 
-// const form = document.querySelector('.feedback-form');
-// const textarea = form.elements.message;
-// const localStorageKey = 'goit-example-message';
+const form = document.querySelector('.feedback-form');
+const textarea = form.elements.message;
+const localStorageKey = 'goit-example-message';
 
-// textarea.value = localStorage.getItem(localStorageKey) ?? '';
+textarea.value = localStorage.getItem(localStorageKey) ?? '';
 
-// form.addEventListener('input', evt => {
-//   localStorage.setItem(localStorageKey, evt.target.value);
-// });
+form.addEventListener('input', evt => {
+  localStorage.setItem(localStorageKey, evt.target.value);
+});
 
-// form.addEventListener('submit', evt => {
-//   evt.preventDefault();
-//   console.log(evt.target.elements.message.value);
-//   localStorage.removeItem(localStorageKey);
-//   form.reset();
-// });
+form.addEventListener('submit', evt => {
+  evt.preventDefault();
+  console.log(evt.target.elements.message.value);
+  localStorage.removeItem(localStorageKey);
+  form.reset();
+});
 const options = {
   method: 'GET',
 };

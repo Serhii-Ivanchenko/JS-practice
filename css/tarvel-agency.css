@@ -1,17 +1,99 @@
 .js-search-form {
-    margin: 10px;
+    margin: 10px auto;
+    text-align: center;
 }
 
 .js-form-container {
-    width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-bottom: 5px;
+}
+
+.js-form-container input {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    transition: border 300ms ease-in-out;
+}
+
+.js-form-container input:focus {
+    border: 2px solid black;
+}
+
+.js-search-form button {
+    margin-bottom: 0 10px;
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    background-color: #4e75ff;
+    transition: background-color 300ms ease-in-out;
+}
+
+.js-search-form button:hover,
+.js-search-form button:focus {
+    background-color: #191970;
 }
 
 .js-add-btn {
-    margin: 10px;
+    display: block;
+    margin: 0 auto 10px;
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    background-color: #4e75ff;
+    transition: background-color 300ms ease-in-out;
 }
 
-.js-list {}
+.js-add-btn:hover,
+.js-add-btn:focus {
+    background-color: #191970;
+}
+
+.weather-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    gap: 30px;
+    padding: 0 20px;
+
+}
+
+.weather-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 300px;
+    background-color: lightblue;
+    border-radius: 8px;
+}
+
+.country {
+    font-size: 24px;
+}
+
+.city {
+    font-size: 20px;
+}
+
+.weather-icon {}
+
+.temp {}
+
+.weather-text {}
